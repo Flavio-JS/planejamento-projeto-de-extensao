@@ -1,36 +1,149 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Site Aldeia - Next.js + Decap CMS
 
-## Getting Started
+Este é um projeto [Next.js](https://nextjs.org) integrado com [Decap CMS](https://decapcms.org) para gerenciamento de conteúdo.
 
-First, run the development server:
+## 🚀 Tecnologias
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Next.js 16** - Framework React com SSG (Static Site Generation)
+- **Decap CMS** - Sistema de gerenciamento de conteúdo
+- **TypeScript** - Tipagem estática
+- **Tailwind CSS** - Estilização
+- **React Markdown** - Renderização de Markdown
+- **Gray Matter** - Processamento de front matter
+
+## 📁 Estrutura do Projeto
+
+```
+site-aldeia/
+├── content/blog/          # Posts do blog (Markdown)
+├── public/
+│   ├── admin/            # Interface do Decap CMS
+│   │   ├── config.yml    # Configuração do CMS
+│   │   └── index.html
+│   └── images/uploads/   # Imagens enviadas pelo CMS
+├── src/
+│   ├── app/
+│   │   ├── blog/         # Páginas do blog
+│   │   │   ├── [slug]/   # Post individual
+│   │   │   └── page.tsx  # Lista de posts
+│   │   └── page.tsx      # Página inicial
+│   └── lib/
+│       └── posts.ts      # Funções para ler posts
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Instalação
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# Clone o repositório
+git clone [seu-repositório]
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Entre na pasta do projeto
+cd site-aldeia
 
-## Learn More
+# Instale as dependências
+npm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+## 🎯 Como Usar
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Desenvolvimento Local
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Para usar o Decap CMS localmente, você precisa rodar **dois servidores simultaneamente**:
 
-## Deploy on Vercel
+#### Terminal 1 - Servidor Next.js
+```bash
+npm run dev
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+#### Terminal 2 - Proxy do Decap CMS
+```bash
+npm run cms-proxy
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Abra [http://localhost:3000](http://localhost:3000) no navegador.
+
+### Páginas Disponíveis
+
+- **Home**: `http://localhost:3000` - Página inicial
+- **Blog**: `http://localhost:3000/blog` - Lista de posts
+- **Admin**: `http://localhost:3000/admin` - Painel do CMS
+
+## ✏️ Gerenciando Conteúdo
+
+### Acessar o Painel Admin
+
+1. Certifique-se de que ambos os servidores estão rodando
+2. Acesse `http://localhost:3000/admin`
+3. Faça login (em desenvolvimento local, não requer autenticação)
+
+### Criar um Post
+
+1. No painel admin, clique em "New Blog"
+2. Preencha os campos:
+   - **Título**: Nome do post
+   - **Data de Publicação**: Data e hora
+   - **Descrição**: Resumo do post
+   - **Imagem de Capa**: Upload da imagem
+   - **Corpo**: Conteúdo em Markdown
+3. Clique em "Publish"
+
+### Editar um Post
+
+1. Na lista de posts, clique no post desejado
+2. Faça as modificações
+3. Clique em "Publish" para salvar
+
+### Deletar um Post
+
+1. Abra o post no painel admin
+2. Clique no menu (três pontos)
+3. Selecione "Delete entry"
+4. Confirme a exclusão
+
+## 📝 Formato dos Posts
+
+Os posts são salvos em `content/blog/` com o seguinte formato:
+
+```markdown
+---
+title: "Título do Post"
+date: "2024-01-15T10:00:00.000Z"
+description: "Descrição breve do post"
+image: "/images/uploads/imagem.jpg"
+---
+
+# Conteúdo do Post
+
+Seu conteúdo em Markdown aqui...
+```
+
+## 🚢 Deploy
+
+### Netlify (Recomendado para Decap CMS)
+
+1. Faça push do código para GitHub
+2. Conecte o repositório no Netlify
+3. Configure:
+   - **Build Command**: `npm run build`
+   - **Publish Directory**: `out` ou `.next`
+4. Ative o Netlify Identity
+5. Ative o Git Gateway nas configurações
+
+### Vercel
+
+```bash
+npm run build
+npm run start
+```
+
+Ou faça deploy direto pela [Vercel Platform](https://vercel.com/new).
+
+## 📚 Recursos
+
+- [Documentação Next.js](https://nextjs.org/docs)
+- [Documentação Decap CMS](https://decapcms.org/docs)
+- [Guia Markdown](https://www.markdownguide.org/)
+
+## 🤝 Contribuindo
+
+Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou pull requests.

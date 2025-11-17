@@ -1,0 +1,25 @@
+backend:
+  name: git-gateway
+  branch: main # Branch to update (optional; defaults to main)
+
+# Para desenvolvimento local
+local_backend: true
+
+# Uncomment below to enable drafts
+# publish_mode: editorial_workflow
+
+media_folder: public/images/uploads
+public_folder: /images/uploads
+
+collections:
+  - name: "blog"
+    label: "Blog"
+    folder: "content/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Data de Publicação", name: "date", widget: "datetime" }
+      - { label: "Descrição", name: "description", widget: "text" }
+      - { label: "Imagem de Capa", name: "image", widget: "image" }
+      - { label: "Corpo", name: "body", widget: "markdown" }
