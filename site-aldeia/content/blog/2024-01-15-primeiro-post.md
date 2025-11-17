@@ -1,8 +1,12 @@
 ---
-title: "Bem-vindo ao nosso blog!"
-date: "2024-01-15T10:00:00.000Z"
-description: "Este é o primeiro post do nosso blog. Aqui você encontrará conteúdo interessante sobre nossa comunidade."
-image: "/images/uploads/exemplo1.jpg"
+title: Bem-vindo ao nosso blog!
+date: 2024-01-15T10:00:00.000Z
+description: >-
+  Este é o primeiro post do nosso blog. Aqui você encontrará conteúdo
+  interessante sobre nossa comunidade.
+
+  Teste de alteração via CMS
+image: https://down-br.img.susercontent.com/file/br-11134207-7r98o-lto8xwx0ori070
 ---
 
 # Bem-vindo ao nosso blog!
