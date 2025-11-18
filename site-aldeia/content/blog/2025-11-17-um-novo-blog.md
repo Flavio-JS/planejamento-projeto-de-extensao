@@ -2,7 +2,7 @@
 title: Um novo Blog
 date: 2025-11-17T20:37:00.000-03:00
 description: Criando um novo Blog
-image: /images/uploads/sem-telefone.png
+image: /images/uploads/borboleta.png
 ---
 # Criando um blog
 
