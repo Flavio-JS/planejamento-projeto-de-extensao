@@ -102,3 +102,4 @@ Aqui você começa a codificação e a aplicação da responsividade.
 - Apresentar o site finalizado (ou o protótipo/versão final dentro do escopo) à liderança da ONG para aprovação.	
 
 - Termo de Aceite (formalizando a entrega do projeto/MVP).
+eeera brincadeira 
