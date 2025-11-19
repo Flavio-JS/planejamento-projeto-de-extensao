@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupo Musical</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script> window.FontAwesomeConfig = { autoReplaceSvg: 'nest'};</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        ::-webkit-scrollbar { display: none; }
+        
+        :root {
+            --primary: #254822;
+            --primary-foreground: #CBCBC8;
+            --secondary: #29193B;
+            --secondary-foreground: #CBCBC8;
+            --accent: #254822;
+            --accent-foreground: #CBCBC8;
+            --background: #CBCBC8;
+            --foreground: #010206;
+            --muted: #50504E;
+            --muted-foreground: #CBCBC8;
+            --card: #FFFFFF;
+            --card-foreground: #010206;
+            --border: #50504E;
+            --ring: #254822;
+        }
+        
+        body {
+            background-color: var(--background);
+            color: var(--foreground);
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .font-serif { font-family: 'Playfair Display', serif; }
+        
+        .hero-bg {
+            background-image: linear-gradient(rgba(41, 25, 59, 0.8), rgba(37, 72, 34, 0.8));
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--primary-foreground);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .organic-shape {
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        }
+        
+        .header-scroll {
+            transition: all 0.3s ease;
+        }
+        
+        .header-scroll.scrolled {
+            background-color: rgba(203, 203, 200, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            border-color: var(--primary);
+        }
+        
+        .timeline-item {
+            border-left: 3px solid var(--primary);
+            padding-left: 24px;
+            position: relative;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 8px;
+            width: 14px;
+            height: 14px;
+            background-color: var(--primary);
+            border-radius: 50%;
+        }
+        
+        .spotify-embed {
+            border-radius: 12px;
+            border: 2px solid var(--border);
+        }
+    </style>
+</head>
+<body>
+    <header id="header" class="header-scroll fixed top-0 w-full z-50 py-4">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background-color: var(--primary);">
+                    <i class="fas fa-leaf text-xl" style="color: var(--primary-foreground);"></i>
+                </div>
+                <span class="text-2xl font-serif font-bold" style="color: var(--foreground);">Terreiro Sagrado</span>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="#" class="hover:underline transition-all duration-300" style="color: var(--foreground);">Início</a>
+                <a href="#" class="hover:underline transition-all duration-300" style="color: var(--foreground);">Sobre</a>
+                <a href="#" class="hover:underline transition-all duration-300" style="color: var(--foreground);">Trabalhos</a>
+                <a href="#" class="hover:underline transition-all duration-300" style="color: var(--foreground);">Consultas</a>
+                <a href="#" class="hover:underline transition-all duration-300" style="color: var(--foreground);">Contato</a>
+            </nav>
+            
+            <button class="md:hidden">
+                <i class="fas fa-bars text-2xl" style="color: var(--foreground);"></i>
+            </button>
+        </div>
+    </header>
+
+    <section id="grupo-hero" class="hero-bg h-[600px] flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0">
+            <img class="w-full h-full object-cover opacity-40" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/3cc32595ed-c62facb737bbb516dc33.png" alt="afro-brazilian musical group performing umbanda songs, traditional drums and instruments, spiritual atmosphere, warm stage lighting" />
+        </div>
+        <div class="absolute inset-0" style="background: linear-gradient(rgba(41, 25, 59, 0.7), rgba(37, 72, 34, 0.7));"></div>
+        
+        <div class="relative z-10 text-center max-w-4xl mx-auto px-6">
+            <div class="fade-in">
+                <h1 class="text-5xl md:text-6xl font-serif font-bold mb-6" style="color: var(--accent);">
+                    Grupo Musical<br>
+                    <span class="text-4xl md:text-5xl" style="color: var(--primary-foreground);">Vozes Ancestrais</span>
+                </h1>
+            </div>
+            
+            <div class="fade-in" style="animation-delay: 0.2s;">
+                <p class="text-xl md:text-2xl leading-relaxed" style="color: var(--primary-foreground);">
+                    Música sagrada que conecta corações e eleva espíritos através dos cantos da tradição
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="integrantes" class="py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-serif font-bold mb-6" style="color: var(--primary);">Nossos Integrantes</h2>
+                <p class="text-lg max-w-3xl mx-auto" style="color: var(--foreground);">
+                    Cada voz carrega a sabedoria ancestral e a paixão pela música sagrada da Umbanda
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center fade-in" style="animation-delay: 0.1s;">
+                    <div class="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4" style="border-color: var(--primary);">
+                        <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-1.jpg" alt="Maria Silva" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2" style="color: var(--card-foreground);">Maria Silva</h3>
+                    <p class="text-sm mb-3" style="color: var(--muted);">Voz Principal</p>
+                    <div class="flex justify-center space-x-3">
+                        <i class="fas fa-microphone text-lg" style="color: var(--primary);"></i>
+                        <i class="fas fa-music text-lg" style="color: var(--primary);"></i>
+                    </div>
+                </div>
+                
+                <div class="text-center fade-in" style="animation-delay: 0.2s;">
+                    <div class="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4" style="border-color: var(--primary);">
+                        <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-2.jpg" alt="João Santos" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2" style="color: var(--card-foreground);">João Santos</h3>
+                    <p class="text-sm mb-3" style="color: var(--muted);">Atabaque</p>
+                    <div class="flex justify-center space-x-3">
+                        <i class="fas fa-drum text-lg" style="color: var(--primary);"></i>
+                        <i class="fas fa-hand-holding-heart text-lg" style="color: var(--primary);"></i>
+                    </div>
+                </div>
+                
+                <div class="text-center fade-in" style="animation-delay: 0.3s;">
+                    <div class="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4" style="border-color: var(--primary);">
+                        <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-5.jpg" alt="Ana Costa" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2" style="color: var(--card-foreground);">Ana Costa</h3>
+                    <p class="text-sm mb-3" style="color: var(--muted);">Coro e Pandeiro</p>
+                    <div class="flex justify-center space-x-3">
+                        <i class="fas fa-music text-lg" style="color: var(--primary);"></i>
+                        <i class="fas fa-circle-dot text-lg" style="color: var(--primary);"></i>
+                    </div>
+                </div>
+                
+                <div class="text-center fade-in" style="animation-delay: 0.4s;">
+                    <div class="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4" style="border-color: var(--primary);">
+                        <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-3.jpg" alt="Carlos Lima" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2" style="color: var(--card-foreground);">Carlos Lima</h3>
+                    <p class="text-sm mb-3" style="color: var(--muted);">Agogô e Caxixi</p>
+                    <div class="flex justify-center space-x-3">
+                        <i class="fas fa-bell text-lg" style="color: var(--primary);"></i>
+                        <i class="fas fa-seedling text-lg" style="color: var(--primary);"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="music-player" class="py-16 px-6" style="background-color: var(--card);">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-4xl font-serif font-bold mb-6" style="color: var(--primary);">Ouça Nossa Música</h2>
+                <p class="text-lg" style="color: var(--card-foreground);">
+                    Cantos sagrados que elevam a alma e conectam com o divino
+                </p>
+            </div>
+            
+            <div class="fade-in">
+                <iframe 
+                    src="https://open.spotify.com/embed/playlist/37i9dQZF1DX0XUsuxWHRQd" 
+                    width="100%" 
+                    height="380" 
+                    frameborder="0" 
+                    allowtransparency="true" 
+                    allow="encrypted-media"
+                    class="spotify-embed">
+                </iframe>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+                <div class="text-center p-6 rounded-lg border-2 card-hover" style="background-color: var(--background); border-color: var(--border);">
+                    <i class="fas fa-play-circle text-3xl mb-4" style="color: var(--primary);"></i>
+                    <h3 class="font-semibold mb-2" style="color: var(--card-foreground);">Pontos de Umbanda</h3>
+                    <p class="text-sm" style="color: var(--muted);">Cantos tradicionais sagrados</p>
+                </div>
+                
+                <div class="text-center p-6 rounded-lg border-2 card-hover" style="background-color: var(--background); border-color: var(--border);">
+                    <i class="fas fa-heart text-3xl mb-4" style="color: var(--primary);"></i>
+                    <h3 class="font-semibold mb-2" style="color: var(--card-foreground);">Cantos de Cura</h3>
+                    <p class="text-sm" style="color: var(--muted);">Melodias de harmonização</p>
+                </div>
+                
+                <div class="text-center p-6 rounded-lg border-2 card-hover" style="background-color: var(--background); border-color: var(--border);">
+                    <i class="fas fa-dove text-3xl mb-4" style="color: var(--primary);"></i>
+                    <h3 class="font-semibold mb-2" style="color: var(--card-foreground);">Hinos Espirituais</h3>
+                    <p class="text-sm" style="color: var(--muted);">Louvores aos Orixás</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="video-gallery" class="py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-serif font-bold mb-6" style="color: var(--primary);">Galeria de Vídeos</h2>
+                <p class="text-lg" style="color: var(--foreground);">
+                    Momentos especiais de nossas apresentações e rituais sagrados
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="fade-in" style="animation-delay: 0.1s;">
+                    <div class="relative rounded-xl overflow-hidden card-hover" style="background-color: var(--card);">
+                        <div class="h-48 overflow-hidden">
+                            <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/52b8889132-609c784e6154f84d693d.png" alt="umbanda musical group performing live, traditional drums, spiritual atmosphere, stage lighting" />
+                        </div>
+                        <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40">
+                            <button class="w-16 h-16 rounded-full flex items-center justify-center" style="background-color: var(--primary);">
+                                <i class="fas fa-play text-xl" style="color: var(--primary-foreground);"></i>
+                            </button>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold mb-2" style="color: var(--card-foreground);">Apresentação Especial</h3>
+                            <p class="text-sm" style="color: var(--muted);">Festival de Música Sagrada 2024</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fade-in" style="animation-delay: 0.2s;">
+                    <div class="relative rounded-xl overflow-hidden card-hover" style="background-color: var(--card);">
+                        <div class="h-48 overflow-hidden">
+                            <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/9295acab90-b842d1e8d42c3062c47a.png" alt="umbanda ceremony with music, candles, spiritual gathering, traditional instruments" />
+                        </div>
+                        <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40">
+                            <button class="w-16 h-16 rounded-full flex items-center justify-center" style="background-color: var(--primary);">
+                                <i class="fas fa-play text-xl" style="color: var(--primary-foreground);"></i>
+                            </button>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold mb-2" style="color: var(--card-foreground);">Gira de Pretos Velhos</h3>
+                            <p class="text-sm" style="color: var(--muted);">Cantos de sabedoria ancestral</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fade-in" style="animation-delay: 0.3s;">
+                    <div class="relative rounded-xl overflow-hidden card-hover" style="background-color: var(--card);">
+                        <div class="h-48 overflow-hidden">
+                            <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/2f806b2650-b6ca39bc6d6480a8c393.png" alt="young people learning umbanda music, traditional drums lesson, cultural transmission" />
+                        </div>
+                        <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40">
+                            <button class="w-16 h-16 rounded-full flex items-center justify-center" style="background-color: var(--primary);">
+                                <i class="fas fa-play text-xl" style="color: var(--primary-foreground);"></i>
+                            </button>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold mb-2" style="color: var(--card-foreground);">Aula de Atabaque</h3>
+                            <p class="text-sm" style="color: var(--muted);">Ensinando a nova geração</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="social-timeline" class="py-16 px-6" style="background: linear-gradient(135deg, var(--background) 0%, #B5B5B2 100%);">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <div class="fade-in">
+                    <h2 class="text-4xl font-serif font-bold mb-8" style="color: var(--primary);">Nossas Redes Sociais</h2>
+                    <div class="space-y-6">
+                        <a href="#" class="flex items-center space-x-4 p-4 rounded-lg card-hover" style="background-color: var(--card);">
+                            <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background-color: #1877f2;">
+                                <i class="fab fa-facebook-f text-xl text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold" style="color: var(--card-foreground);">Facebook</h3>
+                                <p class="text-sm" style="color: var(--muted);">Acompanhe nossos eventos</p>
+                            </div>
+                        </a>
+                        
+                        <a href="#" class="flex items-center space-x-4 p-4 rounded-lg card-hover" style="background-color: var(--card);">
+                            <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background-color: #E4405F;">
+                                <i class="fab fa-instagram text-xl text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold" style="color: var(--card-foreground);">Instagram</h3>
+                                <p class="text-sm" style="color: var(--muted);">Fotos e vídeos especiais</p>
+                            </div>
+                        </a>
+                        
+                        <a href="#" class="flex items-center space-x-4 p-4 rounded-lg card-hover" style="background-color: var(--card);">
+                            <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background-color: #FF0000;">
+                                <i class="fab fa-youtube text-xl text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold" style="color: var(--card-foreground);">YouTube</h3>
+                                <p class="text-sm" style="color: var(--muted);">Canal com apresentações</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="fade-in">
+                    <h2 class="text-4xl font-serif font-bold mb-8" style="color: var(--primary);">Próximos Eventos</h2>
+                    <div class="space-y-6">
+                        <div class="timeline-item">
+                            <div class="p-4 rounded-lg" style="background-color: var(--card);">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="font-semibold" style="color: var(--card-foreground);">Gira de Caboclos</h3>
+                                    <span class="text-sm px-2 py-1 rounded" style="background-color: var(--primary); color: var(--primary-foreground);">15 Jan</span>
+                                </div>
+                                <p class="text-sm mb-2" style="color: var(--muted);">Apresentação musical especial</p>
+                                <p class="text-xs" style="color: var(--muted);">19h30 - Terreiro Sagrado</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="p-4 rounded-lg" style="background-color: var(--card);">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="font-semibold" style="color: var(--card-foreground);">Festival Cultural</h3>
+                                    <span class="text-sm px-2 py-1 rounded" style="background-color: var(--primary); color: var(--primary-foreground);">28 Jan</span>
+                                </div>
+                                <p class="text-sm mb-2" style="color: var(--muted);">Música e dança tradicional</p>
+                                <p class="text-xs" style="color: var(--muted);">14h - Centro Cultural</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="p-4 rounded-lg" style="background-color: var(--card);">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="font-semibold" style="color: var(--card-foreground);">Workshop de Atabaque</h3>
+                                    <span class="text-sm px-2 py-1 rounded" style="background-color: var(--primary); color: var(--primary-foreground);">05 Fev</span>
+                                </div>
+                                <p class="text-sm mb-2" style="color: var(--muted);">Aula aberta para iniciantes</p>
+                                <p class="text-xs" style="color: var(--muted);">10h - Terreiro Sagrado</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cultura-projetos" class="py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-serif font-bold mb-6" style="color: var(--primary);">Cultura e Projetos</h2>
+                <p class="text-lg max-w-3xl mx-auto" style="color: var(--foreground);">
+                    Iniciativas que preservam e difundem a riqueza cultural da tradição afro-brasileira
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="rounded-xl overflow-hidden card-hover fade-in" style="background-color: var(--card); animation-delay: 0.1s;">
+                    <div class="h-48 overflow-hidden">
+                        <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/50a8819563-f44940c26cc1a7e178f9.png" alt="african brazilian women empowerment project, traditional clothing, cultural celebration, community gathering" />
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3" style="color: var(--primary);">ÌYALÒDÊ</h3>
+                        <p class="mb-4" style="color: var(--card-foreground);">
+                            Projeto de empoderamento feminino através da música e cultura ancestral
+                        </p>
+                        <button class="btn-primary px-4 py-2 rounded-lg text-sm font-semibold mb-4">
+                            Saiba mais
+                        </button>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-blue-600 hover:text-blue-800">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="text-pink-600 hover:text-pink-800">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="rounded-xl overflow-hidden card-hover fade-in" style="background-color: var(--card); animation-delay: 0.2s;">
+                    <div class="h-48 overflow-hidden">
+                        <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/21d6a2c08c-bb9f77643b33565f2a42.png" alt="community children learning traditional music, cultural education, drums and instruments, joyful atmosphere" />
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3" style="color: var(--primary);">LUZ DA ALDEIA</h3>
+                        <p class="mb-4" style="color: var(--card-foreground);">
+                            Educação musical para crianças da comunidade, preservando tradições
+                        </p>
+                        <button class="btn-primary px-4 py-2 rounded-lg text-sm font-semibold mb-4">
+                            Saiba mais
+                        </button>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-blue-600 hover:text-blue-800">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="text-red-600 hover:text-red-800">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="rounded-xl overflow-hidden card-hover fade-in" style="background-color: var(--card); animation-delay: 0.3s;">
+                    <div class="h-48 overflow-hidden">
+                        <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/319df6d888-03d85a30022115a9a246.png" alt="cultural movement with traditional dance and music, community celebration, african brazilian heritage, vibrant colors" />
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3" style="color: var(--primary);">RAÍZES EM MOVIMENTO</h3>
+                        <p class="mb-4" style="color: var(--card-foreground);">
+                            Movimento cultural que leva música e dança para escolas e eventos
+                        </p>
+                        <button class="btn-primary px-4 py-2 rounded-lg text-sm font-semibold mb-4">
+                            Saiba mais
+                        </button>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-blue-600 hover:text-blue-800">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="text-pink-600 hover:text-pink-800">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="text-red-600 hover:text-red-800">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="depoimentos" class="py-16 px-6" style="background-color: #B5B5B2;">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl font-serif font-bold mb-12 fade-in" style="color: var(--primary);">Depoimentos</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="p-6 rounded-xl fade-in" style="background-color: var(--card); animation-delay: 0.1s;">
+                    <p class="mb-4 italic" style="color: var(--card-foreground);">
+                        "A música do grupo tocou minha alma de uma forma que nunca imaginei. Gratidão eterna!"
+                    </p>
+                    <p class="font-semibold" style="color: var(--primary);">- Mariana L.</p>
+                </div>
+                
+                <div class="p-6 rounded-xl fade-in" style="background-color: var(--card); animation-delay: 0.2s;">
+                    <p class="mb-4 italic" style="color: var(--card-foreground);">
+                        "Participar do projeto Luz da Aldeia transformou a vida do meu filho. Obrigada!"
+                    </p>
+                    <p class="font-semibold" style="color: var(--primary);">- Roberto S.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer" class="py-16 px-6" style="background-color: var(--secondary); color: var(--secondary-foreground);">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Sobre</h3>
+                    <p class="text-sm leading-relaxed opacity-90">
+                        Grupo musical dedicado à preservação e difusão da música sagrada da Umbanda
+                    </p>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Links Rápidos</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:underline opacity-90">Início</a></li>
+                        <li><a href="#" class="hover:underline opacity-90">Sobre</a></li>
+                        <li><a href="#" class="hover:underline opacity-90">Projetos</a></li>
+                        <li><a href="#" class="hover:underline opacity-90">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Contato</h3>
+                    <ul class="space-y-2 text-sm opacity-90">
+                        <li><i class="fas fa-envelope mr-2"></i>contato@vozesancestrais.com</li>
+                        <li><i class="fas fa-phone mr-2"></i>(11) 98765-4321</li>
+                        <li><i class="fas fa-map-marker-alt mr-2"></i>São Paulo, SP</li>
+                    </ul>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="hover:opacity-80"><i class="fab fa-facebook-f text-xl"></i></a>
+                        <a href="#" class="hover:opacity-80"><i class="fab fa-instagram text-xl"></i></a>
+                        <a href="#" class="hover:opacity-80"><i class="fab fa-youtube text-xl"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t pt-8 text-center text-sm opacity-75" style="border-color: var(--muted);">
+                <p>&copy; 2024 Terreiro Sagrado. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

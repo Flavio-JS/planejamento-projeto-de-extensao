@@ -1,8 +1,8 @@
 ---
-title: Um novo Blog
+title: Um novo Blog alterado
 date: 2025-11-17T20:37:00.000-03:00
 description: Criando um novo Blog
-image: /images/uploads/borboleta.png
+image: /images/uploads/leao.png
 ---
 # Criando um blog
 

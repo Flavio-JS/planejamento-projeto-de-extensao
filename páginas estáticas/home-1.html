@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script> window.FontAwesomeConfig = { autoReplaceSvg: 'nest'};</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        ::-webkit-scrollbar { display: none; }
+        
+        :root {
+            --primary: #254822;
+            --primary-foreground: #CBCBC8;
+            --secondary: #29193B;
+            --secondary-foreground: #CBCBC8;
+            --accent: #254822;
+            --accent-foreground: #CBCBC8;
+            --background: #CBCBC8;
+            --foreground: #010206;
+            --muted: #50504E;
+            --muted-foreground: #CBCBC8;
+            --card: #FFFFFF;
+            --card-foreground: #010206;
+            --border: #50504E;
+            --ring: #254822;
+        }
+        
+        body {
+            background-color: var(--background);
+            color: var(--foreground);
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .font-serif { font-family: 'Playfair Display', serif; }
+        
+        .hero-bg {
+            background-image: linear-gradient(rgba(41, 25, 59, 0.7), rgba(37, 72, 34, 0.7)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="grad1" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="%23254822" stop-opacity="0.3"/><stop offset="100%" stop-color="%2329193B" stop-opacity="0.5"/></radialGradient></defs><rect width="1000" height="1000" fill="url(%23grad1)"/></svg>');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--primary-foreground);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .organic-shape {
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        }
+        
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header-scroll {
+            transition: all 0.3s ease;
+        }
+        
+        .header-scroll.scrolled {
+            background-color: rgba(203, 203, 200, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <header id="header" class="header-scroll fixed top-0 w-full z-50 py-4">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background-color: var(--primary);">
+                    <i class="fas fa-leaf text-xl" style="color: var(--primary-foreground);"></i>
+                </div>
+                <span class="text-2xl font-serif font-bold" style="color: var(--foreground);">Terreiro Sagrado</span>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="#" class="hover:underline transition-all duration-300" style="color: var(--foreground);">Início</a>
+                <a href="#" class="hover:underline transition-all duration-300" style="color: var(--foreground);">Sobre</a>
+                <a href="#" class="hover:underline transition-all duration-300" style="color: var(--foreground);">Trabalhos</a>
+                <a href="#" class="hover:underline transition-all duration-300" style="color: var(--foreground);">Consultas</a>
+                <a href="#" class="hover:underline transition-all duration-300" style="color: var(--foreground);">Contato</a>
+            </nav>
+            
+            <button class="md:hidden">
+                <i class="fas fa-bars text-2xl" style="color: var(--foreground);"></i>
+            </button>
+        </div>
+    </header>
+
+    <main id="hero-section" class="hero-bg min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/ffa6dcf519-1d988a97e208c2dad506.png" alt="mystical forest with ancient trees, spiritual energy, umbanda terreiro setting, natural lighting, peaceful atmosphere" />
+        </div>
+        
+        <div class="relative z-10 text-center max-w-4xl mx-auto px-6 py-20">
+            <div class="fade-in" style="animation-delay: 0.2s;">
+                <h1 class="text-6xl md:text-7xl font-serif font-bold mb-6 text-shadow" style="color: var(--primary-foreground);">
+                    Bem-vindos ao<br>
+                    <span class="text-5xl md:text-6xl">Terreiro Sagrado</span>
+                </h1>
+            </div>
+            
+            <div class="fade-in" style="animation-delay: 0.4s;">
+                <p class="text-xl md:text-2xl mb-12 leading-relaxed text-shadow" style="color: var(--primary-foreground);">
+                    Um espaço de luz, cura e conexão espiritual onde ancestralidade<br>
+                    e tradição se encontram para guiar seu caminho
+                </p>
+            </div>
+            
+            <div class="fade-in grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto" style="animation-delay: 0.6s;">
+                <button class="btn-primary px-8 py-4 rounded-lg font-semibold text-lg flex items-center justify-center space-x-3 organic-shape">
+                    <i class="fas fa-hands-praying"></i>
+                    <span>Consultas</span>
+                </button>
+                
+                <button class="btn-primary px-8 py-4 rounded-lg font-semibold text-lg flex items-center justify-center space-x-3 organic-shape">
+                    <i class="fas fa-candle-holder"></i>
+                    <span>Trabalhos</span>
+                </button>
+                
+                <button class="btn-primary px-8 py-4 rounded-lg font-semibold text-lg flex items-center justify-center space-x-3 organic-shape">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Eventos</span>
+                </button>
+                
+                <button class="btn-primary px-8 py-4 rounded-lg font-semibold text-lg flex items-center justify-center space-x-3 organic-shape">
+                    <i class="fas fa-heart"></i>
+                    <span>Sobre Nós</span>
+                </button>
+            </div>
+            
+            <div class="fade-in mt-16" style="animation-delay: 0.8s;">
+                <div class="flex justify-center">
+                    <button class="animate-bounce">
+                        <i class="fas fa-chevron-down text-3xl" style="color: var(--primary-foreground);"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[var(--background)] to-transparent"></div>
+    </main>
+
+    <section id="about-preview" class="py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="fade-in">
+                    <h2 class="text-4xl md:text-5xl font-serif font-bold mb-6" style="color: var(--primary);">
+                        Tradição e Espiritualidade
+                    </h2>
+                    <p class="text-lg leading-relaxed mb-8" style="color: var(--foreground);">
+                        Nossa casa é um espaço sagrado dedicado à prática da Umbanda, onde a sabedoria ancestral encontra corações abertos em busca de luz, cura e orientação espiritual.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="text-center p-6 rounded-lg" style="background-color: var(--card);">
+                            <i class="fas fa-users text-3xl mb-4" style="color: var(--primary);"></i>
+                            <h3 class="font-semibold mb-2" style="color: var(--card-foreground);">Comunidade</h3>
+                            <p class="text-sm" style="color: var(--muted);">Família espiritual unida</p>
+                        </div>
+                        <div class="text-center p-6 rounded-lg" style="background-color: var(--card);">
+                            <i class="fas fa-dove text-3xl mb-4" style="color: var(--primary);"></i>
+                            <h3 class="font-semibold mb-2" style="color: var(--card-foreground);">Paz</h3>
+                            <p class="text-sm" style="color: var(--muted);">Harmonia e equilíbrio</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fade-in relative">
+                    <div class="w-full h-96 overflow-hidden rounded-2xl organic-shape">
+                        <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/9fe31c3f5f-9056277caa316867e038.png" alt="umbanda terreiro interior, candles, spiritual altar, peaceful atmosphere, warm lighting, traditional elements" />
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 w-32 h-32 rounded-full opacity-20" style="background-color: var(--secondary);"></div>
+                    <div class="absolute -top-6 -left-6 w-24 h-24 rounded-full opacity-20" style="background-color: var(--primary);"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ethics-notice" class="py-16 px-6" style="background-color: var(--primary); color: var(--primary-foreground);">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="flex justify-center mb-6">
+                <i class="fas fa-exclamation-triangle text-4xl"></i>
+            </div>
+            <h3 class="text-2xl font-serif font-bold mb-4">Aviso Importante</h3>
+            <p class="text-lg leading-relaxed">
+                Nossa casa trabalha com seriedade e responsabilidade espiritual. Todos os trabalhos são realizados com respeito às tradições ancestrais e visando sempre o bem-estar e a evolução espiritual de cada pessoa.
+            </p>
+        </div>
+    </section>
+
+    <footer id="footer" class="py-16 px-6" style="background-color: var(--secondary); color: var(--secondary-foreground);">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div>
+                    <h4 class="text-xl font-serif font-bold mb-6">Sobre o Terreiro</h4>
+                    <p class="leading-relaxed mb-6">
+                        Espaço dedicado à prática da Umbanda, oferecendo orientação espiritual, trabalhos de cura e desenvolvimento mediúnico.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="hover:scale-110 transition-transform">
+                            <i class="fab fa-facebook-f text-2xl"></i>
+                        </a>
+                        <a href="#" class="hover:scale-110 transition-transform">
+                            <i class="fab fa-instagram text-2xl"></i>
+                        </a>
+                        <a href="#" class="hover:scale-110 transition-transform">
+                            <i class="fab fa-whatsapp text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-serif font-bold mb-6">Links Rápidos</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="hover:underline">Consultas</a></li>
+                        <li><a href="#" class="hover:underline">Trabalhos Espirituais</a></li>
+                        <li><a href="#" class="hover:underline">Desenvolvimento</a></li>
+                        <li><a href="#" class="hover:underline">Eventos</a></li>
+                        <li><a href="#" class="hover:underline">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-serif font-bold mb-6">Contato</h4>
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Rua da Paz, 123 - Centro</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-phone"></i>
+                            <span>(11) 99999-9999</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-envelope"></i>
+                            <span>contato@terreirosagrado.com</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-clock"></i>
+                            <span>Ter-Dom: 19h às 22h</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t pt-8 mt-12 text-center" style="border-color: var(--muted);">
+                <p>&copy; 2024 Terreiro Sagrado. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('load', function() {
+            const header = document.getElementById('header');
+            
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 100) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+            
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
