@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "cms-proxy": "npx decap-server"
+    "cms": "npx decap-server"
   },
   "dependencies": {
     "decap-cms-app": "^3.9.0",

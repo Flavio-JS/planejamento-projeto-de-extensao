@@ -1,8 +1,8 @@
 ---
-title: "Explorando as funcionalidades"
-date: "2024-02-20T14:30:00.000Z"
-description: "Neste post vamos explorar mais funcionalidades do nosso sistema de blog."
-image: "/images/uploads/exemplo2.jpg"
+title: Explorando as funcionalidades
+date: 2024-02-20T14:30:00.000Z
+description: Neste post vamos explorar mais funcionalidades do nosso sistema de blog.
+image: /images/uploads/arara.png
 ---
 
 # Explorando as funcionalidades

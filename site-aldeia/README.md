@@ -57,7 +57,7 @@ npm run dev
 
 #### Terminal 2 - Proxy do Decap CMS
 ```bash
-npm run cms-proxy
+npm run cms
 ```
 
 Abra [http://localhost:3000](http://localhost:3000) no navegador.
@@ -143,7 +143,3 @@ Ou faça deploy direto pela [Vercel Platform](https://vercel.com/new).
 - [Documentação Next.js](https://nextjs.org/docs)
 - [Documentação Decap CMS](https://decapcms.org/docs)
 - [Guia Markdown](https://www.markdownguide.org/)
-
-## 🤝 Contribuindo
-
-Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou pull requests.
