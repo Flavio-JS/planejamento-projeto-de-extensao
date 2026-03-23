@@ -1,0 +1,341 @@
+backend:
+  name: github
+  repo: SEU_USUARIO/aldeia-da-luz
+  branch: main
+  base_url: https://aldeiadaluz.com.br
+  auth_endpoint: api/auth
+
+# Desenvolvimento local — descomente para testar sem GitHub OAuth
+local_backend: true
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+locale: "pt"
+
+collections:
+  # ─────────────────────────────────────────────
+  # GLOBAL
+  # ─────────────────────────────────────────────
+  - name: "global"
+    label: "Configurações Globais"
+    files:
+      - label: "Header (Cabeçalho)"
+        name: "header"
+        file: "content/global/header.md"
+        fields:
+          - { label: "Logo - Texto", name: "logo", widget: "string" }
+          - { label: "Logo - Imagem", name: "logoImage", widget: "image", required: false }
+          - { label: "Logo - Texto Alt", name: "logoAlt", widget: "string", default: "Aldeia da Luz" }
+          - label: "Itens do Menu"
+            name: "menuItems"
+            widget: "list"
+            fields:
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Link", name: "link", widget: "string" }
+
+      - label: "Footer (Rodapé)"
+        name: "footer"
+        file: "content/global/footer.md"
+        fields:
+          - { label: "Descrição", name: "description", widget: "text" }
+          - { label: "Endereço", name: "address", widget: "string" }
+          - { label: "Telefone", name: "phone", widget: "string" }
+          - { label: "E-mail", name: "email", widget: "string" }
+          - label: "Links Rápidos"
+            name: "quickLinks"
+            widget: "list"
+            fields:
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Link", name: "link", widget: "string" }
+
+      - label: "Aviso Ético"
+        name: "ethics-notice"
+        file: "content/global/ethics-notice.md"
+        fields:
+          - { label: "Título", name: "title", widget: "string" }
+          - { label: "Mensagem", name: "message", widget: "text" }
+
+  # ─────────────────────────────────────────────
+  # HOME
+  # ─────────────────────────────────────────────
+  - name: "home"
+    label: "Home"
+    files:
+      - label: "Hero"
+        name: "hero"
+        file: "content/home/hero.md"
+        fields:
+          - { label: "Título", name: "title", widget: "string" }
+          - { label: "Subtítulo", name: "subtitle", widget: "text" }
+          - { label: "Botão Primário", name: "primaryButton", widget: "string" }
+          - { label: "Botão Primário - Link", name: "primaryLink", widget: "string" }
+          - { label: "Botão Secundário", name: "secondaryButton", widget: "string" }
+          - { label: "Botão Secundário - Link", name: "secondaryLink", widget: "string" }
+          - { label: "Imagem de Fundo", name: "heroImage", widget: "image", required: false }
+
+      - label: "Sobre (Preview)"
+        name: "about-preview"
+        file: "content/home/about-preview.md"
+        fields:
+          - { label: "Título", name: "title", widget: "string" }
+          - { label: "Texto", name: "body", widget: "markdown" }
+          - { label: "Imagem", name: "image", widget: "image", required: false }
+          - { label: "Botão CTA", name: "ctaText", widget: "string" }
+          - { label: "Botão CTA - Link", name: "ctaLink", widget: "string" }
+
+      - label: "Valores"
+        name: "values"
+        file: "content/home/values.md"
+        fields:
+          - { label: "Título", name: "title", widget: "string" }
+          - label: "Valores"
+            name: "values"
+            widget: "list"
+            fields:
+              - { label: "Ícone", name: "icon", widget: "string", hint: "Ex: FaLeaf" }
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Descrição", name: "description", widget: "text" }
+
+      - label: "CTA Final"
+        name: "cta"
+        file: "content/home/cta.md"
+        fields:
+          - { label: "Título", name: "title", widget: "string" }
+          - { label: "Subtítulo", name: "subtitle", widget: "text" }
+          - { label: "Botão", name: "buttonText", widget: "string" }
+          - { label: "Botão - Link", name: "buttonLink", widget: "string" }
+
+  # ─────────────────────────────────────────────
+  # QUEM SOMOS
+  # ─────────────────────────────────────────────
+  - name: "quem-somos"
+    label: "Quem Somos"
+    files:
+      - label: "Hero"
+        name: "hero"
+        file: "content/quem-somos/hero.md"
+        fields:
+          - { label: "Título", name: "title", widget: "string" }
+          - { label: "Subtítulo", name: "subtitle", widget: "text" }
+          - { label: "Imagem", name: "image", widget: "image", required: false }
+
+      - label: "Valores e Missão"
+        name: "values-mission"
+        file: "content/quem-somos/values-mission.md"
+        fields:
+          - { label: "Título", name: "title", widget: "string" }
+          - label: "Cards de Valores"
+            name: "values"
+            widget: "list"
+            fields:
+              - { label: "Ícone", name: "icon", widget: "string" }
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Descrição", name: "description", widget: "text" }
+
+      - label: "Linha do Tempo"
+        name: "timeline"
+        file: "content/quem-somos/timeline.md"
+        fields:
+          - { label: "Título", name: "title", widget: "string" }
+          - label: "Eventos"
+            name: "events"
+            widget: "list"
+            fields:
+              - { label: "Ano", name: "year", widget: "string" }
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Descrição", name: "description", widget: "text" }
+
+      - label: "Comunidade"
+        name: "community"
+        file: "content/quem-somos/community.md"
+        fields:
+          - { label: "Título", name: "title", widget: "string" }
+          - { label: "Texto", name: "body", widget: "markdown" }
+          - label: "Estatísticas"
+            name: "stats"
+            widget: "list"
+            fields:
+              - { label: "Número", name: "number", widget: "string" }
+              - { label: "Label", name: "label", widget: "string" }
+
+  # ─────────────────────────────────────────────
+  # MEDICINAS
+  # ─────────────────────────────────────────────
+  - name: "medicinas"
+    label: "Medicinas Ancestrais"
+    files:
+      - label: "Hero"
+        name: "hero"
+        file: "content/medicinas/hero.md"
+        fields:
+          - { label: "Título", name: "title", widget: "string" }
+          - { label: "Subtítulo", name: "subtitle", widget: "text" }
+
+      - label: "Orixás"
+        name: "orixas"
+        file: "content/medicinas/orixas.md"
+        fields:
+          - { label: "Título", name: "title", widget: "string" }
+          - label: "Orixás"
+            name: "orixas"
+            widget: "list"
+            fields:
+              - { label: "Nome", name: "name", widget: "string" }
+              - { label: "Domínio", name: "domain", widget: "string" }
+              - { label: "Descrição", name: "description", widget: "text" }
+              - { label: "Cor", name: "color", widget: "string", hint: "Classe Tailwind, ex: bg-blue-500" }
+              - { label: "Ícone", name: "icon", widget: "string" }
+
+      - label: "Linhas de Trabalho"
+        name: "linhas-trabalho"
+        file: "content/medicinas/linhas-trabalho.md"
+        fields:
+          - { label: "Título", name: "title", widget: "string" }
+          - label: "Linhas"
+            name: "linhas"
+            widget: "list"
+            fields:
+              - { label: "Nome", name: "name", widget: "string" }
+              - { label: "Descrição", name: "description", widget: "markdown" }
+              - { label: "Ícone", name: "icon", widget: "string" }
+
+      - label: "Medicinas da Floresta"
+        name: "floresta"
+        file: "content/medicinas/floresta.md"
+        fields:
+          - { label: "Título", name: "title", widget: "string" }
+          - { label: "Aviso", name: "warning", widget: "text" }
+          - label: "Medicinas"
+            name: "medicinas"
+            widget: "list"
+            fields:
+              - { label: "Nome", name: "name", widget: "string" }
+              - { label: "Descrição", name: "description", widget: "markdown" }
+              - { label: "Imagem", name: "image", widget: "image", required: false }
+
+  # ─────────────────────────────────────────────
+  # GRUPO MUSICAL
+  # ─────────────────────────────────────────────
+  - name: "grupo-musical"
+    label: "Grupo Musical"
+    files:
+      - label: "Hero"
+        name: "hero"
+        file: "content/grupo-musical/hero.md"
+        fields:
+          - { label: "Título", name: "title", widget: "string" }
+          - { label: "Subtítulo", name: "subtitle", widget: "text" }
+          - { label: "Imagem de Fundo", name: "backgroundImage", widget: "image", required: false }
+
+      - label: "Integrantes"
+        name: "integrantes"
+        file: "content/grupo-musical/integrantes.md"
+        fields:
+          - { label: "Título", name: "title", widget: "string" }
+          - label: "Integrantes"
+            name: "members"
+            widget: "list"
+            fields:
+              - { label: "Nome", name: "name", widget: "string" }
+              - { label: "Função", name: "role", widget: "string" }
+              - { label: "Avatar", name: "avatar", widget: "image", required: false }
+
+      - label: "Música"
+        name: "music"
+        file: "content/grupo-musical/music.md"
+        fields:
+          - { label: "Título", name: "title", widget: "string" }
+          - { label: "Spotify Embed URL", name: "spotifyUrl", widget: "string" }
+
+      - label: "Vídeos"
+        name: "videos"
+        file: "content/grupo-musical/videos.md"
+        fields:
+          - { label: "Título", name: "title", widget: "string" }
+          - label: "Vídeos"
+            name: "videos"
+            widget: "list"
+            fields:
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "URL do Vídeo", name: "url", widget: "string" }
+              - { label: "Thumbnail", name: "thumbnail", widget: "image", required: false }
+
+      - label: "Projetos Culturais"
+        name: "projetos"
+        file: "content/grupo-musical/projetos.md"
+        fields:
+          - { label: "Título", name: "title", widget: "string" }
+          - label: "Projetos"
+            name: "projects"
+            widget: "list"
+            fields:
+              - { label: "Nome", name: "name", widget: "string" }
+              - { label: "Descrição", name: "description", widget: "text" }
+              - { label: "Ícone", name: "icon", widget: "string" }
+
+      - label: "Depoimentos"
+        name: "depoimentos"
+        file: "content/grupo-musical/depoimentos.md"
+        fields:
+          - { label: "Título", name: "title", widget: "string" }
+          - label: "Depoimentos"
+            name: "testimonials"
+            widget: "list"
+            fields:
+              - { label: "Nome", name: "name", widget: "string" }
+              - { label: "Texto", name: "text", widget: "text" }
+
+  # ─────────────────────────────────────────────
+  # CONTATO
+  # ─────────────────────────────────────────────
+  - name: "contato"
+    label: "Contato"
+    files:
+      - label: "Hero"
+        name: "hero"
+        file: "content/contato/hero.md"
+        fields:
+          - { label: "Título", name: "title", widget: "string" }
+          - { label: "Subtítulo", name: "subtitle", widget: "text" }
+
+      - label: "Informações de Contato"
+        name: "info"
+        file: "content/contato/info.md"
+        fields:
+          - { label: "Endereço", name: "address", widget: "string" }
+          - { label: "Telefone", name: "phone", widget: "string" }
+          - { label: "E-mail", name: "email", widget: "string" }
+          - { label: "Instagram", name: "instagram", widget: "string" }
+
+      - label: "Horário de Funcionamento"
+        name: "horario"
+        file: "content/contato/horario.md"
+        fields:
+          - { label: "Título", name: "title", widget: "string" }
+          - label: "Horários"
+            name: "schedule"
+            widget: "list"
+            fields:
+              - { label: "Dia", name: "day", widget: "string" }
+              - { label: "Horário", name: "hours", widget: "string" }
+
+      - label: "Redes Sociais"
+        name: "social"
+        file: "content/contato/social.md"
+        fields:
+          - { label: "Título", name: "title", widget: "string" }
+          - label: "Redes"
+            name: "networks"
+            widget: "list"
+            fields:
+              - { label: "Nome", name: "name", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+              - { label: "Ícone", name: "icon", widget: "string" }
+
+      - label: "Mapa"
+        name: "mapa"
+        file: "content/contato/mapa.md"
+        fields:
+          - { label: "Título", name: "title", widget: "string" }
+          - { label: "Google Maps Embed URL", name: "mapUrl", widget: "string" }

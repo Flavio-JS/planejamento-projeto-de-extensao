@@ -1,24 +1,24 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-site-aldeia/node_modules
-site-aldeia/.pnp
-site-aldeia/.pnp.*
-site-aldeia/.yarn/*
-!site-aldeia/.yarn/patches
-!site-aldeia/.yarn/plugins
-!site-aldeia/.yarn/releases
-!site-aldeia/.yarn/versions
+aldeia-da-luz/node_modules
+aldeia-da-luz/.pnp
+aldeia-da-luz/.pnp.*
+aldeia-da-luz/.yarn/*
+!aldeia-da-luz/.yarn/patches
+!aldeia-da-luz/.yarn/plugins
+!aldeia-da-luz/.yarn/releases
+!aldeia-da-luz/.yarn/versions
 
 # testing
-site-aldeia/coverage
+aldeia-da-luz/coverage
 
 # next.js
-site-aldeia/.next/
-site-aldeia/out/
+aldeia-da-luz/.next/
+aldeia-da-luz/out/
 
 # production
-site-aldeia/build
+aldeia-da-luz/build
 
 # misc
 .DS_Store
@@ -31,11 +31,11 @@ yarn-error.log*
 .pnpm-debug.log*
 
 # env files (can opt-in for committing if needed)
-site-aldeia/.env*
+aldeia-da-luz/.env*
 
 # vercel
-site-aldeia/.vercel
+aldeia-da-luz/.vercel
 
 # typescript
-site-aldeia/*.tsbuildinfo
-site-aldeia/next-env.d.ts
+aldeia-da-luz/*.tsbuildinfo
+aldeia-da-luz/next-env.d.ts
